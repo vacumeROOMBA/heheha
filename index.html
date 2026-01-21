@@ -3,65 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Counter</title>
+    <title>My Visitor Counter</title>
     <style>
         body {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212; /* Dark background */
+            color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 100vh; /* Full screen height */
             margin: 0;
+            font-family: sans-serif;
         }
 
         h1 {
-            font-size: 2rem;
             margin-bottom: 20px;
-            color: #888;
+            font-size: 24px;
+            color: #aaaaaa;
         }
 
-        #counter {
-            font-size: 6rem;
-            font-weight: bold;
-            color: #00ff99;
-            text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
-        }
-
-        .loading {
-            font-size: 2rem;
-            color: #555;
+        /* Make the counter badge large */
+        img {
+            height: 50px; 
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <h1>TOTAL VISITS</h1>
-    <div id="counter" class="loading">...</div>
+    <h1>TOTAL VISITORS</h1>
 
-    <script>
-        // CONFIGURATION:
-        // Change "my-unique-website-name" to something unique for your site!
-        // If you don't change it, you will share the counter with others who copy this code.
-        const NAMESPACE = 'my-unique-website-name'; 
-        const KEY = 'visits';
-
-        const counterElement = document.getElementById('counter');
-
-        // This calls the free API to increment the number
-        fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`)
-            .then(response => response.json())
-            .then(data => {
-                counterElement.innerText = data.count;
-                counterElement.classList.remove('loading');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                counterElement.innerText = "Error";
-            });
-    </script>
+    <!-- 
+       NO SIGN UP REQUIRED.
+       
+       HOW TO MAKE IT WORK:
+       Change "CHANGE_THIS_TEXT" below to something unique (like your username).
+       Example: page_id=johns_awesome_site_counter
+    -->
+    <img src="https://visitor-badge.laobi.io/badge?page_id=vacumeROOMBA" alt="visitor counter">
 
 </body>
 </html>
