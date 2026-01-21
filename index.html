@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Counter</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        #counter {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #00ff99;
+            text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+        }
+
+        .loading {
+            font-size: 2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TOTAL VISITS</h1>
+    <div id="counter" class="loading">...</div>
+
+    <script>
+        // CONFIGURATION:
+        // Change "my-unique-website-name" to something unique for your site!
+        // If you don't change it, you will share the counter with others who copy this code.
+        const NAMESPACE = 'my-unique-website-name'; 
+        const KEY = 'visits';
+
+        const counterElement = document.getElementById('counter');
+
+        // This calls the free API to increment the number
+        fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`)
+            .then(response => response.json())
+            .then(data => {
+                counterElement.innerText = data.count;
+                counterElement.classList.remove('loading');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                counterElement.innerText = "Error";
+            });
+    </script>
+
+</body>
+</html>
