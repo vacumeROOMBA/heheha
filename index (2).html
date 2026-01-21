@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glemmen VGS Transport & Logistikk | Detaljert Utdanning</title>
+    <style>
+        /* --- 1. CORE STYLES & COLORS --- */
+        :root {
+            --color-primary: #0F1C54; /* Navy Blue */
+            --color-accent: #FF6B00; /* Safety Orange */
+            --color-background: #F5F5F7; /* Concrete Grey */
+            --color-text: #1D1D1F; /* Charcoal */
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        a { text-decoration: none; color: var(--color-accent); }
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 9999px; 
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #e05b00;
+            transform: translateY(-3px);
+        }
+
+        /* --- 2. LAYOUT & SECTIONS --- */
+        section {
+            padding: 100px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .split-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            text-align: left;
+        }
+        .split-content > div { flex: 1; }
+        
+        /* --- 3. HERO SECTION --- */
+        #hero {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 180px 20px 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2070&q=60');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+        }
+        .hero-content { position: relative; z-index: 10; }
+        h1 {
+            font-size: 3.5rem;
+            margin: 15px 0 30px 0;
+            line-height: 1.1;
+        }
+        h1 span { color: var(--color-accent); }
+        .tag {
+            background-color: rgba(255, 107, 0, 0.15);
+            color: #FFB075;
+            padding: 6px 20px;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* --- 4. DETAILED CARDS (Bento Inspired) --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .detail-card {
+            background-color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 6px solid var(--color-primary);
+        }
+        .detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .icon-box svg {
+            color: white;
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* --- 5. CAREER PATH TABS --- */
+        #careers .tab-navigation button {
+            background-color: #EAEAEA;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+            transition: background-color 0.2s;
+        }
+        #careers .tab-content {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 40px;
+            border-radius: 0 8px 8px 8px;
+        }
+        .tab-active {
+            background-color: var(--color-primary) !important;
+            color: white !important;
+        }
+
+        /* --- 6. SUBJECTS SECTION --- */
+        #subjects {
+            background-color: #FFFFFF;
+        }
+        .subject-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+        .subject-item {
+            padding: 15px;
+            border-left: 3px solid var(--color-accent);
+            background-color: #fafafa;
+            border-radius: 4px;
+        }
+        
+        /* --- 7. FOOTER --- */
+        footer {
+            background-color: var(--color-text);
+            color: var(--color-background);
+            padding: 60px 20px;
+            text-align: left;
+        }
+        .footer-cols {
+            display: flex;
+            gap: 40px;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .footer-cols > div { flex: 1; }
+        .footer-cols h3 {
+            color: var(--color-accent);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav style="background-color: var(--color-primary); color: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 75px;">
+            <div style="font-weight: 800; font-size: 1.4rem; letter-spacing: 1px;">
+                <span style="color: var(--color-accent);">GLEMMEN</span> VGS
+            </div>
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <a href="#about" style="color: white; text-decoration: none; font-size: 1rem; transition: color 0.2s;">Om Linjen</a>
+                <a href="#subjects" style="color: white; text-decoration: none; font-size: 1rem; transition: color 0.2s;">Fagplan</a>
+                <a href="#careers" style="color: white; text-decoration: none; font-size: 1rem; transition: color 0.2s;">Karriere</a>
+                <a href="#" class="btn-primary" style="padding: 10px 25px; font-size: 0.9rem; box-shadow: none;">SØK NÅ (VIGO)</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <p class="tag">Vg2 TRANSPORT OG LOGISTIKK</p>
+            <h1>Din karriere i logistikk <br> <span>starter på Glemmen.</span></h1>
+            <p style="font-size: 1.3rem; color: #CCCCCC; margin-bottom: 45px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Vi kombinerer topp moderne utstyr – inkludert **simulatorer** – med dyp bransjekunnskap for å gi deg fagbrevgaranti.
+            </p>
+            <a href="#subjects" class="btn-primary">Se Fagplanen</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (Key Info) -->
+    <section id="about">
+        <h2>UTDANNINGEN I FOKUS</h2>
+        <div class="bento-grid">
+            
+            <div class="detail-card" style="border-left-color: #3b82f6;">
+                <div class="icon-box" style="background-color: #3b82f6;"><i data-lucide="layers-3" style="color: white;"></i></div>
+                <h3 style="font-size: 1.5rem; margin-top: 0; color: var(--color-primary);">Lastebilsikring & Miljø</h3>
+                <p style="color: #666;">Lær lover, regler og metoder for trygg og miljøvennlig transport. Fokus på lastsikring (NS-EN 12642).</p>
+            </div>
+
+            <div class="detail-card" style="border-left-color: var(--color-accent);">
+                <div class="icon-box" style="background-color: var(--color-accent);"><i data-lucide="gauge" style="color: white;"></i></div>
+                <h3 style="font-size: 1.5rem; margin-top: 0; color: var(--color-primary);">Klasse B FØRERKORT INKLUDERT</h3>
+                <p style="color: #666;">Som elev får du **gratis opplæring og betaling av en del av kostnaden for førerkort klasse B** (personbil) som et insentiv!</p>
+            </div>
+
+            <div class="detail-card" style="border-left-color: #10b981;">
+                <div class="icon-box" style="background-color: #10b981;"><i data-lucide="warehouse" style="color: white;"></i></div>
+                <h3 style="font-size: 1.5rem; margin-top: 0; color: var(--color-primary);">Digital Logistikk</h3>
+                <p style="color: #666;">Innføring i WMS-systemer, navigasjon og bruk av digitale verktøy for sporing og lagerstyring.</p>
+            </div>
+            
+            <div class="detail-card" style="border-left-color: var(--color-primary);">
+                <div class="icon-box" style="background-color: var(--color-primary);"><i data-lucide="clock-5" style="color: white;"></i></div>
+                <h3 style="font-size: 1.7rem; margin-top: 0; color: var(--color-primary);">2+2 MODELLEN</h3>
+                <p style="color: #666;">2 år skole (Vg2+Vg3) etterfulgt av 2 år som lønnet lærling i bedrift for å oppnå fagbrev.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SUBJECTS / CURRICULUM -->
+    <section id="subjects">
+        <h2>FAG OG KOMPETANSE</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px; color: #555;">Alle elever følger felles fag, og fordypningen skjer i yrkesfagene.</p>
+
+        <div class="subject-list">
+            <div>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Fellesfag (Teori)</h4>
+                <div class="subject-item">Norsk</div>
+                <div class="subject-item">Engelsk</div>
+                <div class="subject-item">Matematikk 1P/2P</div>
+                <div class="subject-item">Naturfag</div>
+            </div>
+            <div>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Yrkesfaglig Fordypning (YFF)</h4>
+                <div class="subject-item">YFF - Transport og logistikk</div>
+                <div class="subject-item">YFF - Kjøretøyteknikk</div>
+                <div class="subject-item">YFF - Bransjesikkerhet</div>
+            </div>
+            <div>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Hovedmoduler</h4>
+                <div class="subject-item">Bransjeteknikk</div>
+                <div class="subject-item">Transport, Logistikk & Løfteoperasjoner</div>
+                <div class="subject-item">HMS og Lovverk</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER PATHS SECTION -->
+    <section id="careers" style="background-color: var(--color-primary); color: white;">
+        <h2>DIN VEI FRA VGS TIL FAGBREV</h2>
+        
+        <div class="tab-navigation" style="text-align: center; margin-bottom: -1px;">
+            <button onclick="showCareer('driver')" id="btn-driver">YRKESSJÅFØR</button>
+            <button onclick="showCareer('logistics')" id="btn-logistics">LOGISTIKKOPERATØR</button>
+            <button onclick="showCareer('crane')" id="btn-crane">KRAN & LØFT</button>
+        </div>
+
+        <div class="tab-content" id="career-driver">
+            <h3 style="color: var(--color-accent); font-size: 1.8rem;">Yrkessjåførfaget</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Du blir ansvarlig for varedistribusjon eller persontransport. Jobben krever selvstendighet, punktlighet og godt kundemottak. Læretiden er kritisk for å få førerkort C/CE.</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Jobb med langtransport, distribusjon eller buss.</li>
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Opplæring i kjøre- og hviletid.</li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="career-logistics" style="display: none;">
+            <h3 style="color: var(--color-accent); font-size: 1.8rem;">Logistikkfaget</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Du blir ekspert på vareflyt, lageroptimalisering og styring av terminaler – hjernen i logistikkjeden. Du jobber ofte i store distribusjonssentre.</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Sertifisering på truck (T1-T4) er en del av Vg3-løpet.</li>
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Karriere hos spedisjonsfirmaer eller i produksjonsbedrifters logistikkavdelinger.</li>
+            </ul>
+        </div>
+        
+        <div class="tab-content" id="career-crane" style="display: none;">
+            <h3 style="color: var(--color-accent); font-size: 1.8rem;">Kran- og Løfteoperasjonsfaget</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Spesialistkompetanse for byggeplasser, industri og havner. Du lærer å håndtere kraner sikkert med fokus på stabilitet og signalgivning.</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Høy etterspørsel i bygg- og anleggsbransjen.</li>
+                <li style="margin-bottom: 10px;"><span style="color: var(--color-accent); margin-right: 10px;">►</span> Sikkerhetsprosedyrer og vedlikehold av løfteutstyr.</li>
+            </ul>
+        </div>
+
+    </section>
+    
+    <!-- PARTNERS SECTION -->
+    <section id="partners">
+        <h2>PRAKSIS OG PARTNERE</h2>
+        <div class="bento-grid">
+            <div class="detail-card" style="border-left-color: #ef4444;">
+                <div class="icon-box" style="background-color: #ef4444;"><i data-lucide="anchor" style="color: white;"></i></div>
+                <h3 style="font-size: 1.4rem; margin-top: 0; color: var(--color-primary);">Borg Havn</h3>
+                <p style="color: #666;">Tett samarbeid med Østfolds største havn for logistikk- og terminaløvelser. Lær logistikk der det skjer.</p>
+            </div>
+            <div class="detail-card" style="border-left-color: #f59e0b;">
+                <div class="icon-box" style="background-color: #f59e0b;"><i data-lucide="building-2" style="color: white;"></i></div>
+                <h3 style="font-size: 1.4rem; margin-top: 0; color: var(--color-primary);">Lokalt Næringsliv</h3>
+                <p style="color: #666;">Tilgang på lærlingplasser hos et bredt spekter av transportselskaper i Fredrikstad og Sarpsborg.</p>
+            </div>
+            <div class="detail-card" style="border-left-color: #14b8a6;">
+                <div class="icon-box" style="background-color: #14b8a6;"><i data-lucide="rotate-ccw" style="color: white;"></i></div>
+                <h3 style="font-size: 1.4rem; margin-top: 0; color: var(--color-primary);">Gjenbruk og Miljø</h3>
+                <p style="color: #666;">Fokus på bærekraftige transportløsninger, energieffektiv kjøring og riktig avfallshåndtering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-cols">
+            <div>
+                <h3 style="color: white;">Kontakt Glemmen</h3>
+                <p style="color: var(--color-background);">Telefon: 69 95 56 00</p>
+                <p style="color: var(--color-background);">E-post: <a href="mailto:glemmenvgs@ofk.no">glemmenvgs@ofk.no</a></p>
+            </div>
+            <div>
+                <h3 style="color: white;">Besøk Oss</h3>
+                <p style="color: var(--color-background);"><strong>Transportavdeling:</strong><br>Tomteveien 51B, 1618 Fredrikstad</p>
+                <p style="margin-top: 10px; color: #AAA;">Hovedskole: Traraveien 13</p>
+            </div>
+            <div>
+                <h3 style="color: white;">Søkeprosess</h3>
+                <p><a href="#">Søk via Vigo</a></p>
+                <p><a href="#">Lærlingkontrakter</a></p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #777;">© 2026 Glemmen VGS | Utdanning i Østfold</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle the "tabs" interaction
+        function showCareer(careerId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-navigation button');
+
+            // Hide all content divs
+            contents.forEach(content => content.style.display = 'none');
+            
+            // Deactivate all buttons
+            buttons.forEach(button => {
+                button.classList.remove('tab-active');
+                button.style.backgroundColor = '#EAEAEA';
+                button.style.color = 'black';
+            });
+
+            // Show the selected content div
+            document.getElementById('career-' + careerId).style.display = 'block';
+            
+            // Activate the selected button
+            const activeBtn = document.getElementById('btn-' + careerId);
+            activeBtn.classList.add('tab-active');
+            activeBtn.style.backgroundColor = 'var(--color-primary)';
+            activeBtn.style.color = 'white';
+        }
+
+        // Initialize the page to show the first tab ('driver') by default
+        document.addEventListener('DOMContentLoaded', () => {
+            showCareer('driver');
+            lucide.createIcons(); // Initialize icons after DOM is ready
+        });
+        
+        // Simple smooth scroll fallback
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
